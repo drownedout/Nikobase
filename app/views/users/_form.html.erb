@@ -1,0 +1,8 @@
+<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+	<%= f.input :id_number %>
+	<%= f.input :firstname %>
+	<%= f.input :lastname %>
+	<%= f.input :email %>
+	<%= f.collection_select :company_id, Company.all, :id, :name, {prompt: "Choose a Category"} %>
+	<%= f.button :submit %>
+<% end %>

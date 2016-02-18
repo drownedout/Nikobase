@@ -2,7 +2,12 @@ class UsersController < ApplicationController
 	before_action :find_user, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@users = User.all
+		if params[:company].blank?
+			@users = User.all
+		else
+			@company_id = Company.find_by(name: params[:company]).id
+			@users = User.where(company_id: @company_id)
+		end
 	end
 
 	def search
@@ -14,7 +19,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		if user.save
+		if @user.save
 			redirect_to @user
 		else
 			render 'new'
@@ -43,7 +48,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:id_number, :firstname, :lastname, :email)
+		params.require(:user).permit(:id_number, :firstname, :lastname, :email, :company_id)
 	end
 
 	def find_user
