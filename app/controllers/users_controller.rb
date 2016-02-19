@@ -11,7 +11,12 @@ class UsersController < ApplicationController
 	end
 
 	def search
-	end
+	    if params[:search].present?
+	      @users = User.search(params[:search])
+	    else
+	      @users = User.all
+	    end
+  	end
 
 	def new
 		@user = User.new

@@ -1,8 +1,38 @@
+<div class="col-md-offset-2 col-md-8">
 <%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
-	<%= f.input :id_number %>
-	<%= f.input :firstname %>
-	<%= f.input :lastname %>
-	<%= f.input :email %>
-	<%= f.collection_select :company_id, Company.all, :id, :name, {prompt: "Choose a Category"} %>
-	<%= f.button :submit %>
+	<div class="form-group">
+		<%= f.label :id_number, "ID Number", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+	    	<%= f.text_field :id_number, required: true, autofocus: true , class: "form-control" %> 
+	   	</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :firstname, "First Name", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+			<%= f.text_field :firstname, required: true, autofocus: true , class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :lastname, "Last Name", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+			<%= f.text_field :lastname, required: true, autofocus: true , class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :email, "Email", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+			<%= f.text_field :email, required: true, autofocus: true , class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :email, "Company", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+			<%= f.collection_select :company_id, Company.all, :id, :name, class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<%= f.button :submit, class: "btn btn-primary" %>
+		</div>
+	</div>
 <% end %>

@@ -1,0 +1,23 @@
+<h1> Search Results </h1>
+<table class="table table-striped table-hover">
+	<% @users.each do |user| %>
+	<thead>
+		<th>ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>Company</th>
+		<th>CCS</th>
+		<th>CES</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= link_to user.id_number, user %></td>
+			<td><%= link_to user.firstname, user %></td>
+			<td><%= link_to user.lastname, user %></td>
+			<td><%= link_to user.email, user %></td>
+			<td><%= link_to user.company.name, user %></td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
