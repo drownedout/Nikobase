@@ -1,21 +1,27 @@
-<table class="table table-striped table-hover">
-	<% @users.each do |user| %>
+<table class="table table-hover">
 		<thead>
 			<th>ID</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Email</th>
 			<th>Company</th>
-			<th>CCS</th>
-			<th>CES</th>
+			<th>CCS Type</th>
+			<th>CCS Date</th>
+			<th>CES Type</th>
+			<th>CES Date</th>
 		</thead>
 		<tbody>
+			<% @users.each do |user| %>
 			<tr>
 				<td><%= link_to user.id_number, user %></td>
 				<td><%= link_to user.firstname, user %></td>
 				<td><%= link_to user.lastname, user %></td>
-				<td><%= link_to user.email, user %></td>
+				<td><%=	mail_to user.email, user.email %></td>
 				<td><%= link_to user.company.name, user %></td>
+				<td><%= link_to user.ccs_type, user %></td>
+				<td><%= link_to user.ccs_date.strftime("%B %d, %Y"), user %></td>
+				<td><%= link_to user.ces_type, user %></td>
+				<td><%= link_to user.ces_date.strftime("%B %d, %Y"), user %></td>
 			</tr>
 		</tbody>
 	<% end %>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 	def index
 		if params[:company].blank?
-			@users = User.all
+			@users = User.all.order("ccs_date ASC")
 		else
 			@company_id = Company.find_by(name: params[:company]).id
 			@users = User.where(company_id: @company_id)
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:id_number, :firstname, :lastname, :email, :company_id)
+		params.require(:user).permit(:id_number, :firstname, :lastname, :email, :company_id, :ccs_type, :ccs_date, :ces_type, :ces_date)
 	end
 
 	def find_user
