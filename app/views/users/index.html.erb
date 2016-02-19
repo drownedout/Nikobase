@@ -19,10 +19,11 @@
 				<td><%=	mail_to user.email, user.email %></td>
 				<td><%= link_to user.company.name, user %></td>
 				<td><%= link_to user.ccs_type, user %></td>
-				<td><%= link_to user.ccs_date.strftime("%B %d, %Y"), user %></td>
+				<td><%= link_to user.ccs_date.strftime("%b %d, %Y"), user %></td>
 				<td><%= link_to user.ces_type, user %></td>
-				<td><%= link_to user.ces_date.strftime("%B %d, %Y"), user %></td>
+				<td><%= link_to user.ces_date.strftime("%b %d, %Y"), user %></td>
 			</tr>
 		</tbody>
 	<% end %>
 </table>
+<%= paginate @users %>

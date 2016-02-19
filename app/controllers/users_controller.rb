@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 	def index
 		if params[:company].blank?
-			@users = User.all.order("ccs_date ASC")
+			@users = User.page(params[:page]).per(50).order("ccs_date ASC")
 		else
 			@company_id = Company.find_by(name: params[:company]).id
 			@users = User.where(company_id: @company_id)

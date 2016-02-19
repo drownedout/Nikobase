@@ -24,6 +24,10 @@
 	border-bottom: 1.5px solid #838EA8;
 }
 
+.cat {
+    padding: 8px 15px
+}
+
 .sidebar {
 	position: fixed;
     top: 51px;
@@ -37,4 +41,10 @@
     background-color: #f0f1f5;
     border-right: 1.5px solid #838EA8;
     font-weight: 600;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 10px 0 20px 20%;
+    border-bottom: 1px solid #eee;
 }

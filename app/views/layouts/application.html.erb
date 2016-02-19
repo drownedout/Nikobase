@@ -19,32 +19,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Nikobase", root_path, class: "navbar-brand" %>
+      <%= link_to image_tag('cat.png'), root_path, class: "navbar-brand cat" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Sign Out", new_admin_session_path %></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Sign Out", destroy_admin_session_path %></li>
       </ul>
       <%= form_tag search_users_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
         <div class="form-group">
           <%= text_field_tag :search, params[:search], class: "form-control" %>
         </div>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
       </form>
       <%end%>
       <ul class="nav navbar-nav navbar-right">
@@ -53,10 +41,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More Options <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Create New Company</a></li>
+            <li><a href="#">Upload Excel Sheet</a></li>
             <li><a href="#">Generate Excel Sheet</a></li>
-            <li><a href="#">See My Cat</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Sign Out</a></li>
+            <li><a href="#">See My Cat</a></li>
           </ul>
         </li>
       </ul>
@@ -72,7 +60,7 @@
 	<div class="row">
     <div class="col-md-2 col-sm-3 sidebar">
         <ul id="sidebar" class="nav nav-sidebar">
-          <li><%= link_to "All Companies", root_path %></li>
+          <li><%= link_to "All Companies", root_path, class: "bar_border" %></li>
         <% Company.all.each do |f| %>
           <li><%= link_to f.name, users_path(company: f.name)%></li>
         <% end %>
