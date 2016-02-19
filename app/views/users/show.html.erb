@@ -1,11 +1,35 @@
-<div class="row">
-	<div class="col-md-6">
-		<h1>Name: <%= @user.firstname %> <%= @user.lastname %></h1>
+<div class="col-md-8">
+	<div class="row">
+		<div class="col-md-12">
+		  <h1 class="only-bottom-margin bar_border"><%= @user.firstname %> <%= @user.lastname %></h1>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-md-10">
+			<p class="text-muted"><strong>ID Number:</strong> <%= @user.id_number %></p>
+		  	<p class="text-muted"><strong>Email:</strong> <%= @user.email %></p>
+		  	<p class="text-muted"><strong>Company:</strong> <%= @user.company.name %></p>
+		  	<div class="row">
+		  		<div class="col-md-6">
+		  		<p class="text-muted"><strong>CCS Status:</strong> <%= @user.ccs_type %></p> 
+		  		</div>
+		  		<div class="col-md-6">
+		  			<p class="text-muted"><strong>Date:</strong> <%= @user.ccs_date.strftime("%b %d, %Y") %></p> 
+		  		</div>
+		  	</div>
+		  	<div class="row">
+		  		<div class="col-md-6">
+		  		<p class="text-muted"><strong>CES Status:</strong> <%= @user.ces_type %></p> 
+		  		</div>
+		  		<div class="col-md-6">
+		  			<p class="text-muted"><strong>Date:</strong> <%= @user.ces_date.strftime("%b %d, %Y") %></p> 
+		  		</div>
+		  	</div>
+		  	<p><strong>Notes:</strong></p>
+		  	<div class="box">
+		  	<p class="notes_show"><%= @user.notes %></p>
+		  	</div>
+		</div>
 	</div>
-	<div class="col-md-6">
-		<h4><%= @user.id_number %></h4>
-	</div>
+	<%= link_to "Edit", edit_user_path, class: "btn btn-primary" %>
 </div>
-<p><%= @user.email %></p>
-<p><%= @user.company.id %></p>
-<%= link_to "Edit", edit_user_path %>
