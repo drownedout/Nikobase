@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :find_user, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_admin!
 
 	def index
 		if params[:company].blank?

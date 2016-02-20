@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+	before_action :find_company, only: [:edit, :update, :show]
+	before_action :authenticate_admin!
+
 	def new
 		@company = Company.new
 	end
@@ -12,9 +15,28 @@ class CompaniesController < ApplicationController
 		end
 	end
 
+	def show
+		@users = User.all
+	end
+
+	def edit
+	end
+
+	def update
+		if @company.update(company_params)
+			redirect_to root_path
+		else
+			render 'edit'
+		end
+	end
+
 	private
 
 	def company_params
-		params.require(:company).permit(:name)
+		params.require(:company).permit(:name, :mou)
+	end
+
+	def find_company
+		@company = Company.find(params[:id])
 	end
 end

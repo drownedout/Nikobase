@@ -26,11 +26,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Sign Out", destroy_admin_session_path %></li>
+        <% if admin_signed_in? %>
+          <li><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign In", new_admin_session_path %></li>
+        <% end %>
       </ul>
+      <% if admin_signed_in? %>
       <%= form_tag search_users_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
         <div class="form-group">
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search User",class: "form-control" %>
         </div>
         <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
       </form>
@@ -46,6 +51,7 @@
             <li role="separator" class="divider"></li>
             <li><%= link_to "See My Cat", root_path %></a></li>
           </ul>
+          <%end%>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -58,14 +64,19 @@
 <!-- Content -->
 <div class="container-fluid body">
 	<div class="row">
+  <% if admin_signed_in? %>
     <div class="col-md-2 col-sm-3 sidebar">
         <ul id="sidebar" class="nav nav-sidebar">
           <li><%= link_to "All Companies", root_path, class: "bar_border" %></li>
+        
         <% Company.all.each do |f| %>
-          <li><%= link_to f.name, users_path(company: f.name)%></li>
+          <% if f.mou == true %>
+            <li><%= link_to f.name, users_path(company: f.name)%></li>
+          <% end %>
         <% end %>
         </ul>
     </div>
+    <% end %>
     <div class="col-md-offset-2 col-md-10 main_content col-sm-9 col-sm-offset-3">
       <%= yield %>
     </div>

@@ -63,3 +63,13 @@
         padding: 5px 10px;
     }
 }
+
+.sign-img {
+    border-radius: 50%;
+    border: 5px solid black;
+    -webkit-box-shadow: 10px 10px 44px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 10px 10px 44px 0px rgba(0,0,0,0.32);
+    box-shadow: 10px 10px 44px 0px rgba(0,0,0,0.32);
+    max-height: 350px;
+    max-width: 350px;
+}

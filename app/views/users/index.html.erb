@@ -17,7 +17,7 @@
 				<td><%= link_to user.firstname, user %></td>
 				<td><%= link_to user.lastname, user %></td>
 				<td><%=	mail_to user.email, user.email %></td>
-				<td><%= link_to user.company.name, user %></td>
+				<td><%= link_to user.company.name, user.company %></td>
 				<td><%= link_to user.ccs_type, user %></td>
 				<td><%= link_to user.ccs_date.strftime("%b %d, %Y"), user %></td>
 				<td><%= link_to user.ces_type, user %></td>
