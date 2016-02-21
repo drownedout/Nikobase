@@ -46,7 +46,12 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More Options <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Create New Company", new_company_path %></li>
-            <li><a href="#">Upload Excel Sheet</a></li>
+            <li>
+                <%= form_tag import_users_path, multipart: true do %>
+                <%= file_field_tag :file %>
+                <%= submit_tag "Import" %>
+                <% end %>
+            </li>
             <li><a href="#">Generate Excel Sheet</a></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "See My Cat", root_path %></a></li>

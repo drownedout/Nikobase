@@ -51,6 +51,11 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
+	def import
+		User.import(params[:file])
+		redirect_to root_path, notice: "Users Added Successfully"
+	end
+
 	private
 
 	def user_params
