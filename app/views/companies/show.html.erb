@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-12">
 	<div class="row">
 		<div class="col-md-12">
 		  <h1 class="only-bottom-margin bar_border"><%= @company.name %></h1>
@@ -9,29 +9,35 @@
 			<p class="text-muted"><strong>ID Number:</strong></p>
 		  	<p class="text-muted"><strong>Email:</strong></p>
 		  	<p class="text-muted"><strong>Employees:</strong></p>
-		  	<ul>
-		  	<% @users.each do |user| %>
-		  		<% if user.company.name == @company.name %>
-		  			<li><%=link_to user.firstname, user %> <%=link_to user.lastname, user %></li>
-		  		<% end %>
-		  	<% end %>
-		  	</ul>
-		  	<div class="row">
-		  		<div class="col-md-6">
-		  		<p class="text-muted"><strong>CCS Status:</strong></p> 
-		  		</div>
-		  		<div class="col-md-6">
-		  			<p class="text-muted"><strong>Date:</strong></p> 
-		  		</div>
-		  	</div>
-		  	<div class="row">
-		  		<div class="col-md-6">
-		  		<p class="text-muted"><strong>CES Status:</strong></p> 
-		  		</div>
-		  		<div class="col-md-6">
-		  			<p class="text-muted"><strong>Date:</strong></p> 
-		  		</div>
-		  	</div>
+
+			<table class="table table-hover">
+				<thead>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>CCS Type</th>
+					<th>CCS Date</th>
+					<th>CES Type</th>
+					<th>CES Date</th>
+				</thead>
+				<tbody>
+					<% @users.each do |user| %>
+						<% if user.company.name == @company.name %>
+							<tr>
+								<td><%= link_to user.id_number, user %></td>
+								<td><%= link_to user.firstname, user %></td>
+								<td><%= link_to user.lastname, user %></td>
+								<td><%=	mail_to user.email, user.email %></td>
+								<td><%= link_to user.ccs_type, user %></td>
+								<td><%= link_to user.ccs_date.strftime("%b %d, %Y"), user %></td>
+								<td><%= link_to user.ces_type, user %></td>
+								<td><%= link_to user.ces_date.strftime("%b %d, %Y"), user %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+			</table>
 		  	<p><strong>Notes:</strong></p>
 		  	<div class="box">
 		  	<p class="notes_show"></p>

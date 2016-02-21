@@ -33,7 +33,7 @@ class CompaniesController < ApplicationController
 	private
 
 	def company_params
-		params.require(:company).permit(:name, :mou)
+		params.require(:company).permit(:name, :email, :mou, :notes)
 	end
 
 	def find_company

@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
 	belongs_to :company
 	searchkick
 	paginates_per 50
+	
 end
