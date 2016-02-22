@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 			User.import(params[:file])
 			redirect_to root_path, notice: "Users Added Successfully"
 		rescue
-			redirect_to root_path, notice: "File Not Valid"
+			redirect_to root_path, notice: "Error"
 		end
 	end
 
