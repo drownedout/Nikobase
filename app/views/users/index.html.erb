@@ -18,10 +18,20 @@
 				<td><%= link_to user.lastname, user %></td>
 				<td><%=	mail_to user.email, user.email %></td>
 				<td><%= link_to user.company.name, user.company %></td>
-				<td><%= link_to user.ccs_type, user %></td>
-				<td><%= link_to user.ccs_date.strftime("%b %d, %Y"), user %></td>
-				<td><%= link_to user.ces_type, user %></td>
-				<td><%= link_to user.ces_date.strftime("%b %d, %Y"), user %></td>
+				<% if user.ccs_type == "None" %>
+					<td><p></p></td>
+					<td><p></p></td>
+				<% else %>
+					<td><%= link_to user.ccs_type, user %></td>
+					<td><%= link_to user.ccs_date.strftime("%b %d, %Y"), user %></td>
+				<% end %>
+					<% if user.ces_type == "None" %>
+					<td><p></p></td>
+					<td><p></p></td>
+				<% else %>
+					<td><%= link_to user.ces_type, user %></td>
+					<td><%= link_to user.ces_date.strftime("%b %d, %Y"), user %></td>
+				<% end %>
 			</tr>
 		</tbody>
 	<% end %>

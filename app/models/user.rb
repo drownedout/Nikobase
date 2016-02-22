@@ -16,6 +16,5 @@ class User < ActiveRecord::Base
 				Time.parse(row["ces_date"])
 			end
 		end
-	end
-	
+	end	
 end
