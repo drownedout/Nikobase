@@ -14,6 +14,9 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'kaminari', '~> 0.16.3'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'spreadsheet', '~> 1.1', '>= 1.1.1'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 
 group :production do
 	gem 'pg'
