@@ -35,11 +35,11 @@
       <% if admin_signed_in? %>
       <%= form_tag search_users_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
         <div class="form-group">
-          <%= text_field_tag :search, params[:search], placeholder: "Search User",class: "form-control" %>
+         <!-- <%= text_field_tag :search, params[:search], placeholder: "Search User",class: "form-control" %>
         </div>
         <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
       </form>
-      <%end%>
+      <%end%> -->
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Create New User", new_user_path %></a></li>
         <li><%= link_to "All Companies", companies_path %></a></li>
