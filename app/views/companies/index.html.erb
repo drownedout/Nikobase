@@ -1,0 +1,22 @@
+<table class="table table-hover">
+		<thead>
+			<th>ID</th>
+			<th>Company</th>
+			<th>Email</th>
+			<th>MOU</th>
+		</thead>
+		<tbody>
+			<% @companies.each do |company| %>
+			<tr>
+				<td><%= link_to company.id, company %></td>
+				<td><%= link_to company.name, company %></td>
+				<td><%= mail_to company.email, company.email %></td>
+				<% if company.mou == true %>
+					<td><%= link_to "Yes", company %></td>
+				<% else %>
+					<td><%= link_to "No", company %></td>
+				<% end %>
+			</tr>
+		</tbody>
+	<% end %>
+</table>

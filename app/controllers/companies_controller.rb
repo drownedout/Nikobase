@@ -2,6 +2,10 @@ class CompaniesController < ApplicationController
 	before_action :find_company, only: [:edit, :update, :show]
 	before_action :authenticate_admin!
 
+	def index
+		@companies = Company.all
+	end
+
 	def new
 		@company = Company.new
 	end
