@@ -18,6 +18,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails'
 gem 'jquery-turbolinks'
+gem 'bootstrap-table-rails'
 
 group :production do
 	gem 'pg'

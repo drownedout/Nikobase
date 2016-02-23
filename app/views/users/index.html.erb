@@ -1,14 +1,14 @@
-<table class="table table-hover sortable">
+<table class="table table-hover" data-toggle="table">
 		<thead>
-			<th>ID</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Email</th>
-			<th>Company</th>
-			<th>CCS Type</th>
-			<th>CCS Date</th>
-			<th>CES Type</th>
-			<th>CES Date</th>
+			<th data-sortable="true">ID</th>
+			<th data-sortable="true">First Name</th>
+			<th data-sortable="true">Last Name</th>
+			<th data-sortable="true">Email</th>
+			<th data-sortable="true">Company</th>
+			<th data-sortable="true">CCS Type</th>
+			<th data-sortable="true">CCS Date</th>
+			<th data-sortable="true">CES Type</th>
+			<th data-sortable="true">CES Date</th>
 		</thead>
 		<tbody>
 			<% @users.each do |user| %>
@@ -33,7 +33,7 @@
 					<td><%= link_to user.ces_date.strftime("%b %d, %Y"), user %></td>
 				<% end %>
 			</tr>
+			<% end %>
 		</tbody>
-	<% end %>
 </table>
 <%= paginate @users %>
