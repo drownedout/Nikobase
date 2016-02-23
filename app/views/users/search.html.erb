@@ -7,8 +7,10 @@
 		<th>Last Name</th>
 		<th>Email</th>
 		<th>Company</th>
-		<th>CCS</th>
-		<th>CES</th>
+		<th>CCS Type</th>
+		<th>CCS Date</th>
+		<th>CES Type</th>
+		<th>CES Date</th>
 	</thead>
 	<tbody>
 		<tr>
@@ -17,7 +19,21 @@
 			<td><%= link_to user.lastname, user %></td>
 			<td><%= link_to user.email, user %></td>
 			<td><%= link_to user.company.name, user %></td>
+			<% if user.ccs_type == "None" %>
+					<td><p></p></td>
+					<td><p></p></td>
+				<% else %>
+					<td><%= link_to user.ccs_type, user %></td>
+					<td><%= link_to user.ccs_date.strftime("%b %d, %Y"), user %></td>
+				<% end %>
+					<% if user.ces_type == "None" %>
+					<td><p></p></td>
+					<td><p></p></td>
+				<% else %>
+					<td><%= link_to user.ces_type, user %></td>
+					<td><%= link_to user.ces_date.strftime("%b %d, %Y"), user %></td>
+			<% end %>
 		</tr>
 	</tbody>
 	<% end %>
-</table>
+</table> 

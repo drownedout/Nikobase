@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-	before_action :find_company, only: [:edit, :update, :show]
+	before_action :find_company, only: [:edit, :update, :show, :destroy]
 	before_action :authenticate_admin!
 
 	def index
@@ -32,6 +32,11 @@ class CompaniesController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@company.destroy
+		redirect_to root_path
 	end
 
 	private

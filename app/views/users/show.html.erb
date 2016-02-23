@@ -8,7 +8,7 @@
 		<div class="col-md-10">
 			<p class="text-muted"><strong>ID Number:</strong> <%= @user.id_number %></p>
 		  	<p class="text-muted"><strong>Email:</strong> <%= @user.email %></p>
-		  	<p class="text-muted"><strong>Company:</strong> <%= @user.company.name %></p>
+		  	<p class="text-muted"><strong>Company:</strong> <%= @user.company.name rescue ""%></p>
 		  	<div class="row">
 		  		<% if @user.ccs_type == "None" %>
 		  		<div class="col-md-6">
@@ -50,5 +50,6 @@
 		</div>
 	</div>
 	<%= link_to "Edit", edit_user_path, class: "btn btn-primary" %>
+	<%= link_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %>
 	<%= link_to "Back", :back, class: "btn btn-primary" %>
 </div>
