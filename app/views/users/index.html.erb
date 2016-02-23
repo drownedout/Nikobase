@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover sortable">
 		<thead>
 			<th>ID</th>
 			<th>First Name</th>
@@ -17,7 +17,7 @@
 				<td><%= link_to user.firstname, user %></td>
 				<td><%= link_to user.lastname, user %></td>
 				<td><%=	mail_to user.email, user.email %></td>
-				<td><%= link_to user.company.name, @user.try(:company)%></td>
+				<td><%= link_to user.company.name, user %></td>
 				<% if user.ccs_type == "None" %>
 					<td><p></p></td>
 					<td><p></p></td>

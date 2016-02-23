@@ -17,6 +17,7 @@ gem 'spreadsheet', '~> 1.1', '>= 1.1.1'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails'
+gem 'jquery-turbolinks'
 
 group :production do
 	gem 'pg'
